@@ -1,27 +1,17 @@
-# Vehicletracker
+# Cab Tracking
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+This repo is a simulation of real world cab tracking usecase.
 
-## Development server
+Idea here is to get the cab coordinates (latutude, longitude) of a given cab 
+and map the Car object on Google Map at those coordinates.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The approach I followed here is -
 
-## Code scaffolding
+Say user want to track the assigned cab -
+Now cab will be sending its coordinates to a Kafka Topic (partition key could be Cab Number).
+Now from front end - we do make a call to backend API by sending the Cab Number as input (Say for every 5 seconds).
+Backend API now returns the last coordinates of the given Cab Number.
+Now in UI we display the Car object (svg image) at those coordinates.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This way user can track the current position of the given cab number.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
